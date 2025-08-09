@@ -1,0 +1,43 @@
+# Configuration for Transformer-based Cross-Asset TXN Prediction
+
+# Data parameters
+data:
+  # Large-cap stocks for cross-asset features + TXN as target
+  tickers: ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA', 'META', 'NVDA', 'TXN']
+  target_ticker: 'TXN'  # Texas Instruments - the target for prediction
+  start_date: '2015-01-01'
+  end_date: '2025-01-01'
+  window_length: 60  # Number of trading days to look back
+  
+# Feature engineering
+features:
+  use_returns: true
+  use_volume: true
+  rolling_windows: [5, 10, 20]  # Rolling mean and volatility windows
+  volume_zscore_window: 20
+  
+# Model parameters
+model:
+  d_model: 256  # Transformer embedding dimension
+  nhead: 8      # Number of attention heads
+  num_layers: 4 # Number of transformer encoder layers
+  dim_feedforward: 1024
+  dropout: 0.1
+  
+# Training parameters
+training:
+  batch_size: 32
+  learning_rate: 0.001
+  num_epochs: 100
+  early_stopping_patience: 10
+  validation_split: 0.2
+  test_split: 0.1
+  
+# Checkpointing
+checkpoints:
+  save_best: true
+  save_dir: 'checkpoints'
+  
+# Evaluation
+evaluation:
+  metrics: ['mse', 'rmse', 'mae', 'directional_accuracy']

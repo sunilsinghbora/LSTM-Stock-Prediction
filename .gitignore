@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+.env
+
+# Data files
+*.npy
+*.pkl
+*.csv
+data/
+
+# Model checkpoints
+checkpoints/
+*.pt
+*.pth
+
+# Results and plots
+results/
+*.png
+*.jpg
+*.jpeg
+*.pdf
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+.tmp/
